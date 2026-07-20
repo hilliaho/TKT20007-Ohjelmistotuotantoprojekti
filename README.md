@@ -10,10 +10,10 @@ Ohtuprojekti osallistujan silmin: syksyn 2024 NOW-tietokanta-tiimin [kertomus](h
 
 - Kurssilla on Discord-kanava _ohtuproj_, liity nyt https://study.cs.helsinki.fi/discord/join/ohtuproj
 
-**Demot** kevät 2026:
+**Demot** kesä 2026:
 
 * Välidemo (tiivisprojekti loppudemo) to 25.6. klo 10.00-12 Physicum E204
-* Loppudemo ke 26.8. klo 10:00-12, paikka tulee myöhemmin
+* Loppudemo ke 26.8. klo 10:00-12, Exactum C222
 
 Aloitus tasalta ilman akateemista varttia.
 
