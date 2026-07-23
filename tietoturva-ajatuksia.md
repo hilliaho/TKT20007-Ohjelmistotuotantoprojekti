@@ -4,9 +4,9 @@
 
 Jos sovelluksessa on eri rooleja, niin on syytä noudattaa huolellisuutta käyttäjien autentikoinnissa. Ei riitä, että käyttäjältä piilotetaan toiminnallisuutta tekemällä tarkistukset vain frontin puolella. Tarkistukset pitää olla toteutettuna jollain tapaa myös backendissä, jotta toiminnallisuuden suorittaminen autentikaation ohi ei onnistu. Tekoäly työkaluja voidaan myös käyttää hyödyksi mahdollisten tietoturva-aukkojen huomaamiseen.
 
-Salaisuudet eivät saisi vuotaa julkisuuteen. Salaisuuksia voi hallita esimerkiksi .env tiedostoilla. **Tarkkaavaisuutta vaaditaan myös AI työkaluja käytettäessä.** Tekoälytyökalujen käyttäjillä on vastuu ottaa selvää miten tietyt (henkilökohtaiset) tiedostot voidaan konfiguroida pois työkalun nähtäviltä. Lisäksi osa datasta tai koodista voi olla salaista: on hyvä tarkistaa asiakkaalta mitä saa antaa työkalun analysoitavaksi etenkin jos koodi on yksityistä. Mitään henkilötietoja tai muuta luottamuksellista dataa ei saa käsitellä millään tekoälytyökalulla, ei edes CurreChatillä.
+**Salaisuudet eivät saisi vuotaa julkisuuteen.** Salaisuuksia voi hallita esimerkiksi .env tiedostoilla. **Tarkkaavaisuutta vaaditaan myös AI työkaluja käytettäessä.** Tekoälytyökalujen käyttäjillä on vastuu ottaa selvää miten tietyt (henkilökohtaiset) tiedostot voidaan konfiguroida pois työkalun nähtäviltä. Lisäksi osa datasta tai koodista voi olla salaista: on hyvä tarkistaa asiakkaalta mitä saa antaa työkalun analysoitavaksi etenkin jos koodi on yksityistä. Mitään henkilötietoja tai muuta luottamuksellista dataa ei saa käsitellä millään tekoälytyökalulla, ei edes CurreChatillä.
 
-Tietoturva on jokaisen sovelluskehittäjän vastuulla. Tekoälytyökalut ovat tulleet jäädäkseen ja niiden vastuullinen käyttö on jopa suotavaa. Kuitenkin generoitu koodi tulisi käydä läpi ja ymmärtää sen toiminta. Perusasiat kannattaa opetella yhä huolella ja koodausrutiinia pitää yllä. Mitä paremmin ymmärtää jonkin ohjelmointikielen ominaisuuksia ja alaa, jolle sovellusta tuotetaan, sitä parempia ja tarkempia prompteja saa aikaiseksi.
+**Tietoturva on jokaisen sovelluskehittäjän vastuulla.** Tekoälytyökalut ovat tulleet jäädäkseen ja niiden vastuullinen käyttö on jopa suotavaa. Kuitenkin generoitu koodi tulisi käydä läpi ja ymmärtää sen toiminta. Perusasiat kannattaa opetella yhä huolella ja koodausrutiinia pitää yllä. Mitä paremmin ymmärtää jonkin ohjelmointikielen ominaisuuksia ja alaa, jolle sovellusta tuotetaan, sitä parempia ja tarkempia prompteja saa aikaiseksi.
 
 Kun teet committeja, kannattaa tarkistaa vielä mitä on lisätty (tai poistettu) ennen commitin tekoa ja puskemista repositorioon. Tällä usein välttää väärien asioiden julkaisemisen.
 
@@ -27,8 +27,8 @@ Tiedoston .npmrc konfiguraatio auttaa varautumaan [supply chain -hyökkäyksiä]
   save-prefix=
   ```
   **ignore-scripts=true** -> estää pakettien ensi-/jälkiasennusskriptien toiminnan. Näitä on legitiimissä käytössä erittäin harvoin.  
-  **min-release-age=7** -> estää alle viikon vanhojen pakettien asennuksen. Mahdolliset haavoittuvuudet huomataan ja korjataan (yleensä...) aikaisemmin.  
-  **save-prefix=** -> npm (jos ei eksplisiittisesti kielletä) asettaa asennettujen pakettien versionumeron eteen `^`-symbolin `package.lock`-tiedostossa, joka sallii paketin minor/patch -versioiden noston ajaessa `npm install` -> ei haluta tätä.
+  **min-release-age=7** -> estää alle viikon vanhojen pakettien asennuksen. Mahdolliset haavoittuvuudet huomataan ja korjataan yleensä aikaisemmin.  
+  **save-prefix=** -> npm (jos ei eksplisiittisesti kielletä) asettaa asennettujen pakettien versionumeron eteen `^`-symbolin `package.lock`-tiedostossa, joka sallii paketin minor/patch -versioiden noston ajaessa `npm install`.
 
 2. Tarkista konfiguraatio ajamalla node projektin juuresssa
 
@@ -100,7 +100,7 @@ Näillä toimilla yritetään välttää haitallisen koodin eksymistä palvelimi
 - Myös ryhmän tuki on tärkeää ja ketään ei tulisi mollata tai turhaan syyttää tapahtuneesta. Parempi on   pohtia mikä johti tilanteeseen ja miten vastaavaat tilanteet vältetään jatkossa. Myös ohjaajalle on hyvä selittää tilanne.
 
 ## Palveliympäristöjen konfiguraatiotiedostot
-`Secret` ja `ConfigMap` -tiedostot **eivät** saa olla julkisesti esillä. ConfigMaP ei periaatteessa tulisi siältää mitään salaista, mutta koska sinne voi lisätä periaatteessa mitä vain, ne ovat pontentiaalisia uhkia vuotaa tietoja.
+`Secret` ja `ConfigMap` -tiedostot **eivät** saa olla julkisesti esillä. ConfigMaP ei tulisi sisältää mitään salaista, mutta koska sinne voi lisätä periaatteessa mitä vain, se ovat pontentiaalinen uhka vuotaa tietoja.
 
 ## Muuta
 Jos käytätte palveluita tai luotte esimerkiksi gmail tai muita tunnuksia kehityksen aikana, mutta jäävät turhaksi jossain vaiheessa, niin ne kannattaa poistaa.
