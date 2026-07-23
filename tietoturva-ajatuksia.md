@@ -99,7 +99,7 @@ Näillä toimilla yritetään välttää haitallisen koodin eksymistä palvelimi
 - Vaihda salasanat aina, vaikka salaisuus olisi ollut repositoriossa vain muutaman hetken ja sen sisältämä commit oltaisiin saatu poistettua kokonaan.
 - Myös ryhmän tuki on tärkeää ja ketään ei tulisi mollata tai turhaan syyttää tapahtuneesta. Parempi on   pohtia mikä johti tilanteeseen ja miten vastaavaat tilanteet vältetään jatkossa. Myös ohjaajalle on hyvä selittää tilanne.
 
-## Palveliympäristöjen konfiguraatiotiedostot
+## OpenShift/okd konttialustojen konfiguraatiotiedostot
 `Secret` ja `ConfigMap` -tiedostot **eivät** saa olla julkisesti esillä. ConfigMaP ei tulisi sisältää mitään salaista, mutta koska sinne voi lisätä periaatteessa mitä vain, se ovat pontentiaalinen uhka vuotaa tietoja.
 
 ## Muuta
