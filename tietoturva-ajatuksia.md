@@ -1,16 +1,42 @@
 # Sekalaista tietoturva-asiaa
 
-## Sovelluksen autentikointi, ympäristömuuttujat ja tekoäly
+## Sovelluksen autorisaatio, autentikointi, ympäristömuuttujat ja tekoäly
+**Autentikointi** tarkoittaa käyttäjän henkilöllisyyden varmistamista esimerkiksi kirjautumisen avulla. **Autorisointi** puolestaan määrittää, mitä oikeuksia käyttäjällä on sovelluksessa. Esimerkiksi pääsyä näkymiin tai oikeuteen poistaa tai muokata objekteja voi olla rajoitettu käyttäjäroolien perusteella.
 
-Jos sovelluksessa on eri rooleja, niin on syytä noudattaa huolellisuutta käyttäjien autentikoinnissa. Ei riitä, että käyttäjältä piilotetaan toiminnallisuutta tekemällä tarkistukset vain frontin puolella. Tarkistukset pitää olla toteutettuna jollain tapaa myös backendissä, jotta toiminnallisuuden suorittaminen autentikaation ohi ei onnistu. Tekoäly työkaluja voidaan myös käyttää hyödyksi mahdollisten tietoturva-aukkojen huomaamiseen.
+Jos sovelluksessa on eri rooleja, niin käyttäjien autorisoinnissa täytyy olla tarkkana. Ei riitä, että käyttäjän oikeudet käyttää toiminnallisuutta tarkistetaan vain frontin puolella. Tarkistukset täytyvät olla toteutettuna myös backendissä, jotta toimintoja ei voida suorittaa autentikoinnin tai autorisoinnin ohi esimerkiksi suoria API-kutsuja tekemällä. Tekoälytyökaluja voidaan myös käyttää hyödyksi mahdollisten tietoturva-aukkojen huomaamiseen. Lopullinen vastuu tietoturvasta on kaikilla. Siksi on hyvä käydä ratkaisuja läpi yhdessä ryhmän ja teknisenohjaajan kanssa. 
 
-**Salaisuudet eivät saisi vuotaa julkisuuteen.** Salaisuuksia voi hallita esimerkiksi .env tiedostoilla. **Tarkkaavaisuutta vaaditaan myös AI työkaluja käytettäessä.** Tekoälytyökalujen käyttäjillä on vastuu ottaa selvää miten tietyt (henkilökohtaiset) tiedostot voidaan konfiguroida pois työkalun nähtäviltä. Lisäksi osa datasta tai koodista voi olla salaista: on hyvä tarkistaa asiakkaalta mitä saa antaa työkalun analysoitavaksi etenkin jos koodi on yksityistä. Mitään henkilötietoja tai muuta luottamuksellista dataa ei saa käsitellä millään tekoälytyökalulla, ei edes CurreChatillä.
+**Ympäristömuuttujat, henkilötiedot tai muut salassa pidettävät asiat eivät saa päätyä julkiseksi esimerkiksi GitHubiin.** Salaisuuksia hallitaan esimerkiksi .env tiedostoilla ja lisäämällä lokaalisti pidettävät tiedostojen nimet tai pelkästään tyypit .gitignoreen. On myös huomattava, että tällaiset asiat eivät saisi olla myöskään julkisesti saatavan docker kuvan sisällä. .gitignore ja .dockerignore tiedostot kannattaa lisätä repositorioon jo kehityksen alkuvaiheessa. Esimerkkiä voi ottaa .gitignoreen tästä ja .dockerignoreen tästä. 
+
+**Tarkkaavaisuutta vaaditaan myös AI työkaluja käytettäessä.** Tekoälytyökalujen käyttäjillä on vastuu ottaa selvää miten tietyt (henkilökohtaiset) tiedostot voidaan konfiguroida pois työkalun nähtäviltä. Lisäksi osa datasta tai koodista voi olla salaista: on hyvä tarkistaa asiakkaalta mitä saa antaa työkalun analysoitavaksi etenkin jos koodi on yksityistä. Mitään henkilötietoja tai muuta luottamuksellista dataa ei saa käsitellä millään tekoälytyökalulla, ei edes CurreChatillä.
 
 **Tietoturva on jokaisen sovelluskehittäjän vastuulla.** Tekoälytyökalut ovat tulleet jäädäkseen ja niiden vastuullinen käyttö on jopa suotavaa. Kuitenkin generoitu koodi tulisi käydä läpi ja ymmärtää sen toiminta. Perusasiat kannattaa opetella yhä huolella ja koodausrutiinia pitää yllä. Mitä paremmin ymmärtää jonkin ohjelmointikielen ominaisuuksia ja alaa, jolle sovellusta tuotetaan, sitä parempia ja tarkempia prompteja saa aikaiseksi.
 
-Kun teet committeja, kannattaa tarkistaa vielä mitä on lisätty (tai poistettu) ennen commitin tekoa ja puskemista repositorioon. Tällä usein välttää väärien asioiden julkaisemisen.
+**Ennen commitin luomista ja puskemista GitHubiin tai vastaavaan, tarkista vielä lisätyt (tai poistetut) rivit.** Tällä usein välttää väärien asioiden julkaisemisen.
 
-## Node
+## Testidata
+- Generoi data: älä käytä omia tai muiden henkilötietoja testidatana!
+
+## Vääriä asioita sisältävä commit tehty lokaalisti
+- `git reset` on hyödyllinen: [lue lisää](https://git-scm.com/docs/git-reset) 
+
+## Mitä tehdä, jos salaisuus tai henkiltietoja versionhallintaan (GitHub)
+- Älä salaa asiaa! On tärkeää reagoida asiaan nopeasti.
+- Jos salaisuuksia julkaistu GitHubiin, niin salasanat, apiavaimet tai muut vastaavat on vaihdettava välittömästi.
+- Henkilötietoja sisältävien sql dumppien,tai muiden vastaavien tiedostojen osalta paras vaihtoehto on
+  1. Laittakaa repository yksityiseksi
+  2. Ottakaa yhteyttä ohjaajaan ja tekniseenohjaajaan, jotta repositorio saadaan palautettua tilaan, jossa historia on palautettua virheellistä committia edeltävään tilaan
+- Myös ryhmän tuki on tärkeää ja ketään ei tulisi mollata tai turhaan syyttää tapahtuneesta. Parempi on pohtia sitä, mikä johti tilanteeseen ja miten vastaavaat tilanteet vältetään jatkossa. Myös ohjaajalle on hyvä selittää tilanne.
+
+## OpenShift-/okd-konttialustojen konfiguraatiotiedostot
+`Secret` -tiedostot **eivät** saa olla julkisesti esillä. `ConfigMap`-tiedostojen ei tulisi sisältää mitään salaista. Mutta koska sinne voi lisätä periaatteessa mitä vain, se ovat pontentiaalinen uhka vuotaa tietoja, joten näiden kanssa tulee olla erityisen huolellinen.
+
+## Muuta
+Jos käytätte palveluita tai luotte esimerkiksi gmail tai muita tunnuksia kehityksen aikana, mutta jäävät turhaksi, niin ne kannattaa ehdottomasti poistaa käytön loppuessa.
+
+Yleisenä nyrkkisääntönä voi pitää, että jos tiedostossa on plain text tai vaikka base64-enkoodattuja tokeneita, käyttiksiä ja salasanoja tai muuta vastaavaa tietoa, niin ei saa päätyä julkiseen repoon tai edes git-historiaan.
+
+## Ympäristöspesifejä linkkejä
+### Node
 #### .npmrc konfiguraatio
 Tiedoston .npmrc konfiguraatio auttaa varautumaan [supply chain -hyökkäyksiä]((https://www.cloudflare.com/learning/security/what-is-a-supply-chain-attack/)) vastaan. Lisäämällä viikon viiveen uusien riippuvuuksien lataukseen pienennetään todennäköisyyttä sille, että kehittäjä ajaisi koneellaan haitallista koodia. Tähänkään ei voi sokeasti luottaa. Etenkin uusia, itselle vieraita paketteja asennellessa on hyvä noudattaa tervettä varovaisuutta.
 
@@ -90,19 +116,3 @@ jobs:
 - Ei kannata mahdollistaa puskemista mainiin kelle tahansa: Lisää branch protection rules, jos ei ole. Push oikeudet kannattaisi rajoittaa vain organisaation jäseniin. Projektitasolla Settings > General > Features voi kliksuttaa ![image](img/github_pull_req_restrict.png)
 
 Näillä toimilla yritetään välttää haitallisen koodin eksymistä palvelimille ja toisaalta turhat actions ajot.
-
-## Mitä tehdä, jos salaisuus vuotaa versionhallintaan (tarvitsee lisätietoja)
-
-- Älä salaa asiaa! On tärkeää reagoida asiaan nopeasti.
-- Jos salaisuus vuoti edellisessä commitissa, voit kokeilla palauttaa headin committia edeltävään tilaan tehdä tarvittavat muutokset ennen uutta pushausta (https://git-scm.com/docs/git-revert).
-- Uuden salaisuuden poistavan commitin lisääminen poistaa salaisuuden näkyviltä, mutta sen löytäminen historiasta on suhteellisen helppoa automatisoiduilla skripteillä.
-- Vaihda salasanat aina, vaikka salaisuus olisi ollut repositoriossa vain muutaman hetken ja sen sisältämä commit oltaisiin saatu poistettua kokonaan.
-- Myös ryhmän tuki on tärkeää ja ketään ei tulisi mollata tai turhaan syyttää tapahtuneesta. Parempi on   pohtia mikä johti tilanteeseen ja miten vastaavaat tilanteet vältetään jatkossa. Myös ohjaajalle on hyvä selittää tilanne.
-
-## OpenShift/okd konttialustojen konfiguraatiotiedostot
-`Secret` ja `ConfigMap` -tiedostot **eivät** saa olla julkisesti esillä. ConfigMaP ei tulisi sisältää mitään salaista, mutta koska sinne voi lisätä periaatteessa mitä vain, se ovat pontentiaalinen uhka vuotaa tietoja.
-
-## Muuta
-Jos käytätte palveluita tai luotte esimerkiksi gmail tai muita tunnuksia kehityksen aikana, mutta jäävät turhaksi jossain vaiheessa, niin ne kannattaa poistaa.
-
-Yleisenä nyrkkisääntönä voi pitää, että jos tiedostossa on plain text tai vaikka base64-enkoodattuja tokeneita, käyttiksiä ja salasanoja tai muuta vastaavaa tietoa, niin ei saa päätyä julkiseen repoon tai edes git-historiaan.
