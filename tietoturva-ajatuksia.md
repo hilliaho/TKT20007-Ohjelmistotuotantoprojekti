@@ -7,11 +7,13 @@ Jos sovelluksessa on eri rooleja, niin käyttäjien autorisoinnissa täytyy olla
 
 **Ympäristömuuttujat, henkilötiedot tai muut salassa pidettävät asiat eivät saa päätyä julkiseksi esimerkiksi GitHubiin.** Salaisuuksia hallitaan esimerkiksi .env tiedostoilla ja lisäämällä lokaalisti pidettävät tiedostojen nimet tai pelkästään tyypit .gitignoreen. On myös huomattava, että tällaiset asiat eivät saisi olla myöskään julkisesti saatavan docker kuvan sisällä. .gitignore ja .dockerignore tiedostot kannattaa lisätä repositorioon jo kehityksen alkuvaiheessa. Esimerkkiä voi ottaa .gitignoreen tästä ja .dockerignoreen tästä. 
 
-**AI työkalut:** Tekoälytyökalujen käyttäjillä on vastuu ottaa selvää miten tietyt (henkilökohtaiset) tiedostot voidaan konfiguroida pois työkalun nähtäviltä. Lisäksi osa datasta tai koodista voi olla salaista: on hyvä tarkistaa asiakkaalta mitä saa antaa työkalun analysoitavaksi etenkin jos koodi on yksityistä. Mitään henkilötietoja tai muuta luottamuksellista dataa ei saa käsitellä millään tekoälytyökalulla, ei edes CurreChatillä.
+**AI työkalut:** Tekoälytyökalujen käyttäjillä on vastuu ottaa selvää miten tietyt (henkilökohtaiset) tiedostot tai kansiot voidaan konfiguroida pois työkalun nähtäviltä tai estää joidenkin komentojen ajaminen. On myös mahdollista luoda hiekkalaatikkoja, jotka eristävät mallin käytön siten, että työkalulla ei ole esimerkiksi kotihakemistoon lukuoikeuksia. Lisäksi osa datasta tai koodista voi olla salaista: on hyvä tarkistaa asiakkaalta mitä saa antaa työkalun analysoitavaksi etenkin jos koodi on yksityistä. Mitään henkilötietoja tai muuta luottamuksellista dataa ei saa käsitellä millään tekoälytyökalulla, ei edes CurreChatillä. Commitit kannattaa tehdä itse ja samalla tarkistaa, mitä on viemässä GitHubiin,vaikka koodin generoimiseen olisi
 
 **Tietoturva on jokaisen sovelluskehittäjän vastuulla.** Tekoälytyökalut ovat tulleet jäädäkseen ja niiden vastuullinen käyttö on jopa suotavaa. Kuitenkin generoitu koodi tulisi käydä läpi ja ymmärtää sen toiminta. Perusasiat kannattaa opetella yhä huolella ja koodausrutiinia pitää yllä. Mitä paremmin ymmärtää jonkin ohjelmointikielen ominaisuuksia ja alaa, jolle sovellusta tuotetaan, sitä parempia ja tarkempia prompteja saa aikaiseksi.
 
 **Ennen commitin luomista ja puskemista GitHubiin tai vastaavaan, tarkista vielä lisätyt (tai poistetut) rivit.** Tällä usein välttää väärien asioiden julkaisemisen.
+
+Luokaa myös kattavat .dockerignore ja .gitignore tiedostot, joiden avulla vältetään turhien tai mahdollisesti salaisten tiedostojen tai kansioiden siirtyminen versionhallintaan ja konttikuvaan. Esimerkit näistä tiedostoista löytyvät täältä.
 
 ## Testidata
 - Generoi data: älä käytä omia tai muiden henkilötietoja testidatana!
@@ -31,7 +33,7 @@ Jos sovelluksessa on eri rooleja, niin käyttäjien autorisoinnissa täytyy olla
 `Secret` -tiedostot **eivät** saa olla julkisesti esillä. `ConfigMap`-tiedostojen ei tulisi sisältää mitään salaista. Mutta koska sinne voi lisätä periaatteessa mitä vain, se ovat pontentiaalinen uhka vuotaa tietoja, joten näiden kanssa tulee olla erityisen huolellinen.
 
 ## Muuta
-Jos käytätte palveluita tai luotte esimerkiksi gmail tai muita tunnuksia kehityksen aikana, mutta jäävät turhaksi, niin ne kannattaa ehdottomasti poistaa käytön loppuessa.
+Jos käytätte palveluita tai luotte esimerkiksi gmail- tai muita tunnuksia kehityksen aikana, mutta jäävät turhaksi, niin ne kannattaa ehdottomasti poistaa käytön loppuessa.
 
 Yleisenä nyrkkisääntönä voi pitää, että jos tiedostossa on plain text tai vaikka base64-enkoodattuja tokeneita, käyttiksiä ja salasanoja tai muuta vastaavaa tietoa, niin ei saa päätyä julkiseen repoon tai edes git-historiaan.
 
@@ -65,7 +67,6 @@ Tiedoston .npmrc konfiguraatio auttaa varautumaan [supply chain -hyökkäyksiä]
 
 3. Varmista, että konfigaraatiot tulevat Docker-kuvaan esimerkiksi kopioimalla se **Dockerfilessä** komennolla
 
-
     ```Dockerfile
     COPY ./package* ./
     COPY ./.npmrc ./ 
@@ -84,35 +85,7 @@ Myös Pythonilla kehitettäessä käytetään ulkoisia kirjastoja. [Supply chain
 
 Jupyter Notebookien avulla pystyy yhdistämään koodia ja tekstiä mukavasti sekä datan visualisointi onnistuu hyvin. Ennen kuin notebookin sisällön puskee julkiseksi, on hyvä tarkistaa, että eihän outputissa ole printattuna mitään ympäristömuuttujia tai muuta sellaista, jota ei tulisi julkisesti esittää. Yleisesti voi olla hyvä tapa tyhjentää notebookin koodiblokkien tulosteen ennen committia.
 
-Pythonilla ohjelmoidessa on hyvä käyttää virtuaaliympäristöä, johon tarvittavat ohjelmat asennetaan.
-
+Pythonilla ohjelmoidessa on hyvä käyttää virtuaaliympäristöä, jossa asennetaan vain juuri kyseisssä projektissa tarvittavat riippuvuudet.
 
 ## Github repojen workflow't ja asetukset
-Mahdollisten riippuvuuksien päivittämistarpeen tarkistaminen voidaan osittain automatisoida esimerkiksi Renovate botin avulla. Kirjastojen ikä on usein varsin nuori. **[Workflow'n](https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows) ajo voidaan haluta estää tietyiltä käyttäjiltä.** Alla pari esimerkkiä, joissa renovate botin tekemät testien ajot on estetty feature brancheille ja pullareille konfiguroiduissa workflow tiedostoissa (`.github/workflows/.*y(a)ml`):
-- pull_request, **if lauseke** tulee olla jokaisen jobin alussa
-
-```
-on:
-  pull_request:
-    branches: ['master']
-jobs:
-  lint:
-    if: ${{ github.event.pull_request.user.login != 'renovate[bot]' }}
-    runs-on: ubuntu-latest
-    ...
-```
-- feature branch, laita esimerkin **if lauseke** jokaisen jobin alkuun
-```
-on:
-  push:
-    branches-ignore: ['master']
-jobs:
-  lint:
-    if: ${{ github.event.pusher.username != 'renovate[bot]' }}
-    runs-on: ubuntu-latest
-    ...
-```
-- Ylläolevissa taupauksissa ei haluttu triggeröidä työjonoa. Botti haluttiin kuitenkin pitää muistuttamassa pakettien uusista versioista.
-- Ei kannata mahdollistaa puskemista mainiin kelle tahansa: Lisää branch protection rules, jos ei ole. Push oikeudet kannattaisi rajoittaa vain organisaation jäseniin. Projektitasolla Settings > General > Features voi kliksuttaa ![image](img/github_pull_req_restrict.png)
-
-Näillä toimilla yritetään välttää haitallisen koodin eksymistä palvelimille ja toisaalta turhat actions ajot.
+Push oikeudet mainiin kannattaisi rajoittaa vain organisaation jäseniin. Projektitasolla Settings > General > Features voi kliksuttaa ![image](img/github_pull_req_restrict.png).
