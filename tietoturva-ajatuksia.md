@@ -16,18 +16,18 @@ Jos sovelluksessa on eri rooleja, niin käyttäjien autorisoinnissa täytyy olla
 Luokaa myös kattavat .dockerignore ja .gitignore tiedostot, joiden avulla vältetään turhien tai mahdollisesti salaisten tiedostojen tai kansioiden siirtyminen versionhallintaan ja konttikuvaan. Esimerkit näistä tiedostoista löytyvät täältä.
 
 ## Testidata
-- Generoi data: älä käytä omia tai muiden henkilötietoja testidatana!
+- Generoi data: älä käytä omia tai muiden henkilötietoja tai muuta sensitiivistä dataa testidatana!
 
 ## Vääriä asioita sisältävä commit tehty lokaalisti
 - `git reset` on hyödyllinen: [lue lisää](https://git-scm.com/docs/git-reset) 
 
 ## Mitä tehdä, jos salaisuus tai henkiltietoja versionhallintaan (GitHub)
-- Älä salaa asiaa! On tärkeää reagoida asiaan nopeasti.
-- Jos salaisuuksia julkaistu GitHubiin, niin salasanat, apiavaimet tai muut vastaavat on vaihdettava välittömästi.
-- Henkilötietoja sisältävien sql dumppien,tai muiden vastaavien tiedostojen osalta paras vaihtoehto on
+- Älä salaa asiaa! On tärkeää reagoida nopeasti.
+- Jos salaisuuksia on päässyt GitHubiin, GitLabiin tai vastaavaan: vaihtakaa salasanat, apiavaimet tai muut vastaavat välittömästi.
+- Henkilötietoja sisältävien sql dumppientai muiden vastaavien tiedostojen osalta:
   1. Laittakaa repository yksityiseksi
-  2. Ottakaa yhteyttä ohjaajaan ja tekniseenohjaajaan, jotta repositorio saadaan palautettua tilaan, jossa historia on palautettua virheellistä committia edeltävään tilaan
-- Myös ryhmän tuki on tärkeää ja ketään ei tulisi mollata tai turhaan syyttää tapahtuneesta. Parempi on pohtia sitä, mikä johti tilanteeseen ja miten vastaavaat tilanteet vältetään jatkossa. Myös ohjaajalle on hyvä selittää tilanne.
+  2. Ottakaa yhteyttä ohjaajaan ja tekniseenohjaajaan, jotta repositorio saadaan tilaan, joka ei sisällä mitään sensitiivistä dataa.
+- Ryhmän tuki on tärkeää ja ketään ei tulisi mollata tai syytellä tapahtuneesta. Parempi on pohtia sitä, mikä johti tilanteeseen ja miten vastaavaat tilanteet vältetään jatkossa. Myös ohjaajalle on hyvä selittää tilanne.
 
 ## OpenShift-/okd-konttialustojen konfiguraatiotiedostot
 `Secret` -tiedostot **eivät** saa olla julkisesti esillä. `ConfigMap`-tiedostojen ei tulisi sisältää mitään salaista. Mutta koska sinne voi lisätä periaatteessa mitä vain, se ovat pontentiaalinen uhka vuotaa tietoja, joten näiden kanssa tulee olla erityisen huolellinen.
