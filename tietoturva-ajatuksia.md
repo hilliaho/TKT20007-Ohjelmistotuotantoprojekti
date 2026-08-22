@@ -1,13 +1,13 @@
 # Sekalaista tietoturva-asiaa
 
 ## Sovelluksen autorisaatio, autentikointi, ympäristömuuttujat ja tekoäly
-**Autentikointi** tarkoittaa käyttäjän henkilöllisyyden varmistamista esimerkiksi kirjautumisen avulla. **Autorisointi** puolestaan määrittää, mitä oikeuksia käyttäjällä on sovelluksessa. Esimerkiksi pääsyä näkymiin tai oikeuteen poistaa tai muokata objekteja voi olla rajoitettu käyttäjäroolien perusteella.
+**Autentikointi** tarkoittaa käyttäjän henkilöllisyyden varmistamista esimerkiksi kirjautumisen avulla. **Autorisointi** puolestaan määrittää, mitä oikeuksia käyttäjällä on sovelluksessa. Esimerkiksi pääsyä näkymiin tai oikeutta poistaa tai muokata objekteja voi olla rajoitettu käyttäjäroolien perusteella.
 
-Jos sovelluksessa on eri rooleja, niin käyttäjien autorisoinnissa täytyy olla tarkkana. Ei riitä, että käyttäjän oikeudet käyttää toiminnallisuutta tarkistetaan vain frontin puolella. Tarkistukset täytyvät olla toteutettuna myös backendissä, jotta toimintoja ei voida suorittaa autentikoinnin tai autorisoinnin ohi esimerkiksi suoria API-kutsuja tekemällä. Tekoälytyökaluja voidaan myös käyttää hyödyksi mahdollisten tietoturva-aukkojen huomaamiseen. Lopullinen vastuu tietoturvasta on kaikilla. Siksi on hyvä käydä ratkaisuja läpi yhdessä ryhmän ja teknisenohjaajan kanssa. 
+Jos sovelluksessa on eri rooleja, niin käyttäjien autorisoinnissa täytyy olla tarkkana. Ei riitä, että käyttäjän oikeudet käyttää toiminnallisuutta tarkistetaan vain frontin puolella. Tarkistukset täytyvät olla toteutettuna myös backendissä, jotta toimintoja ei voida suorittaa autentikoinnin tai autorisoinnin ohi esimerkiksi suoria API-kutsuja tekemällä. Tekoälytyökaluja voidaan myös käyttää hyödyksi mahdollisten tietoturva-aukkojen huomaamiseen. Lopullinen vastuu tietoturvasta on kaikilla. Siksi on hyvä käydä ratkaisuja läpi yhdessä ryhmän ja teknisen ohjaajan kanssa. 
 
 **Ympäristömuuttujat, henkilötiedot tai muut salassa pidettävät asiat eivät saa päätyä julkiseksi esimerkiksi GitHubiin.** Salaisuuksia hallitaan esimerkiksi .env-tiedostoilla ja lisäämällä lokaalisti pidettävät tiedostojen nimet tai pelkästään tyypit .gitignoreen. On myös huomattava, että tällaiset asiat eivät saisi olla myöskään julkisesti saatavan Docker-kuvan sisällä. .gitignore- ja .dockerignore-tiedostot kannattaa lisätä repositorioon jo kehityksen alkuvaiheessa. Esimerkkiä voi ottaa .gitignoreen tästä ja .dockerignoreen tästä. 
 
-**AI työkalut:** Tekoälytyökalujen käyttäjillä on vastuu ottaa selvää, miten tietyt (henkilökohtaiset) tiedostot tai kansiot voidaan konfiguroida pois työkalun nähtäviltä tai estää joidenkin komentojen ajaminen. On myös mahdollista luoda hiekkalaatikkoja, jotka eristävät mallin käytön siten, että työkalulla ei ole esimerkiksi kotihakemistoon lukuoikeuksia. Lisäksi osa datasta tai koodista voi olla salaista: on hyvä tarkistaa asiakkaalta, mitä saa antaa työkalun analysoitavaksi, etenkin jos koodi on yksityistä. Mitään henkilötietoja tai muuta luottamuksellista dataa ei saa käsitellä millään tekoälytyökalulla, ei edes CurreChatillä. Commitit kannattaa tehdä itse ja samalla tarkistaa, mitä on viemässä GitHubiin, vaikka koodin generoimiseen olisi
+**AI-työkalut:** Tekoälytyökalujen käyttäjillä on vastuu ottaa selvää, miten tietyt (henkilökohtaiset) tiedostot tai kansiot voidaan konfiguroida pois työkalun nähtäviltä tai estää joidenkin komentojen ajaminen. On myös mahdollista luoda hiekkalaatikkoja, jotka eristävät mallin käytön siten, että työkalulla ei ole esimerkiksi kotihakemistoon lukuoikeuksia. Lisäksi osa datasta tai koodista voi olla salaista: on hyvä tarkistaa asiakkaalta, mitä saa antaa työkalun analysoitavaksi, etenkin jos koodi on yksityistä. Mitään henkilötietoja tai muuta luottamuksellista dataa ei saa käsitellä millään tekoälytyökalulla, ei edes CurreChatillä. Commitit kannattaa tehdä itse ja samalla tarkistaa, mitä on viemässä GitHubiin, vaikka koodin generoimiseen olisi
 
 **Tietoturva on jokaisen sovelluskehittäjän vastuulla.** Tekoälytyökalut ovat tulleet jäädäkseen ja niiden vastuullinen käyttö on jopa suotavaa. Kuitenkin generoitu koodi tulisi käydä läpi ja ymmärtää sen toiminta. Perusasiat kannattaa opetella yhä huolella ja koodausrutiinia pitää yllä. Mitä paremmin ymmärtää jonkin ohjelmointikielen ominaisuuksia ja alaa, jolle sovellusta tuotetaan, sitä parempia ja tarkempia prompteja saa aikaiseksi.
 
@@ -35,7 +35,7 @@ Luokaa myös kattavat .dockerignore- ja .gitignore-tiedostot, joiden avulla väl
 ## Muuta
 Jos käytätte palveluita tai luotte esimerkiksi Gmail-tunnuksia kehityksen aikana, niin tilit kannattaa ehdottomasti poistaa niiden muuttuessa turhaksi.
 
-Yleisenä nyrkkisääntönä voi pitää, että jos tiedostossa on plain text tai vaikka base64-enkoodattuja tokeneita, käyttiksiä ja salasanoja tai muuta vastaavaa tietoa, niin ei saa päätyä julkiseen repoon tai edes git-historiaan.
+Yleisenä nyrkkisääntönä voi pitää, että jos tiedostossa on plain text tai vaikka base64-enkoodattuja tokeneita, käyttäjätunnuksia ja salasanoja tai muuta vastaavaa tietoa, niin ei saa päätyä julkiseen repoon tai edes git-historiaan.
 
 ## Ympäristöspesifejä linkkejä
 ### Node
@@ -46,7 +46,7 @@ Tiedoston .npmrc konfiguraatio auttaa varautumaan [supply chain -hyökkäyksiä]
 
 1. Tiedosto [`.npmrc`](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc) luodaan projektin juureen samaan paikkaan package.json tiedoston kautta
 
-- Joissakin repoissa on monta eri node-projektia: reposta löytyy eri paikoista `package.json`-tiedosto. `.npmrc`-tiedosto tulee olla samoissa paikoissa kuin `package.json`-tiedosto. Tiedoston sisältö:  
+- Joissakin repoissa on monta eri Node-projektia: reposta löytyy eri paikoista `package.json`-tiedosto. `.npmrc`-tiedosto tulee olla samoissa paikoissa kuin `package.json`-tiedosto. Tiedoston sisältö:  
 
   ### .npmrc
   ```sh
