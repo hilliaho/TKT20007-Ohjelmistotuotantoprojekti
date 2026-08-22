@@ -12,3 +12,27 @@ Asiakkaan rooliin EI kuulu:
 - Muissa palavereissa kuin sprintinjälkeisessä review/demopalaverissa läsnäolo 
   - tarkemman sprint planningin hoitaa yheensä RYHMÄ asiakkaan toiveet mielessä pitäen ja asiakkaan läsnäoloa ei edellytetä, tarpeen mukaan asiakaskin toki voi olla paikalle
 - Product backlogin ylläpito. Tiimi vastaa asiakkaan toiveiden kirjaamisesta backlogille.
+
+## Ryhmän sisäiset roolit
+Alla otteita eri rooleista mahdollisine vastuualueineen. Te voitte ryhmissänne pohtia, mikä roolit otatte käyttöön ja millainen vastuujako näiden roolien välillä on. Rooleja kannattaa kierrättää ihmiseltä toiselle sprinttien vaihtuessa.
+
+### Scrum master
+- Vastaa backlogien ajantasaisuudesta ja tarvittaessa muistuttaa ryhmäläisiä päivittämään eri taskien ja käyttäjätarinoiden statusta.
+- Luo uuden sprintin tuntikirjanpitoon sprinttien vaihtuessa.
+- Huolehtii, että ryhmän laatimia käytänteitä noudatetaan
+
+### Puheenjohtaja
+- Vastaa asiakastapaamisen agendasta ja huolehtii, että jokainen asia käydään läpi.
+- Huolehtii, että kaikki halukkaat saavat tapaamisissa puheenvuoron.
+
+### Demovastaava
+- Esittelee sprintin tuotokset asiakkaalle.
+- Vetovastuussa väli- ja loppudemon tekemisestä, mutta ei tietysti tee kaikkea itse.
+
+### Kirjuri
+- Tekee muistiinpanot asiakastapaamisessa ja jakaa ne ryhmille
+
+### Retrovastaava
+- Vetää retrospektiivin
+- Kirjoittaa kokoavat muistiinpanot tai muulla tavoin dokumentoi keskustellut asiat ja jakaa ne ryhmälle.
+  
