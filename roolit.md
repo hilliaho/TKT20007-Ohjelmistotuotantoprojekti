@@ -10,7 +10,7 @@
 Asiakkaan rooliin EI kuulu:
 - Ryhmän työhön sotkeutuminen (esim. työn alla olevien vaatimuksien muuttaminen) kesken sprintin 
 - Muissa palavereissa kuin sprintinjälkeisessä review/demopalaverissa läsnäolo 
-  - tarkemman sprint planningin hoitaa yheensä RYHMÄ asiakkaan toiveet mielessä pitäen ja asiakkaan läsnäoloa ei edellytetä, tarpeen mukaan asiakaskin toki voi olla paikalle
+  - tarkemman sprint planningin hoitaa yheensä RYHMÄ asiakkaan toiveet mielessä pitäen ja asiakkaan läsnäoloa ei edellytetä, tarpeen mukaan asiakas toki voi olla paikalle
 - Product backlogin ylläpito. Tiimi vastaa asiakkaan toiveiden kirjaamisesta backlogille.
 
 ## Ryhmän sisäiset roolit
