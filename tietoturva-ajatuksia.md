@@ -5,15 +5,15 @@
 
 Jos sovelluksessa on eri rooleja, niin käyttäjien autorisoinnissa täytyy olla tarkkana. Ei riitä, että käyttäjän oikeudet käyttää toiminnallisuutta tarkistetaan vain frontin puolella. Tarkistukset täytyvät olla toteutettuna myös backendissä, jotta toimintoja ei voida suorittaa autentikoinnin tai autorisoinnin ohi esimerkiksi suoria API-kutsuja tekemällä. Tekoälytyökaluja voidaan myös käyttää hyödyksi mahdollisten tietoturva-aukkojen huomaamiseen. Lopullinen vastuu tietoturvasta on kaikilla. Siksi on hyvä käydä ratkaisuja läpi yhdessä ryhmän ja teknisenohjaajan kanssa. 
 
-**Ympäristömuuttujat, henkilötiedot tai muut salassa pidettävät asiat eivät saa päätyä julkiseksi esimerkiksi GitHubiin.** Salaisuuksia hallitaan esimerkiksi .env tiedostoilla ja lisäämällä lokaalisti pidettävät tiedostojen nimet tai pelkästään tyypit .gitignoreen. On myös huomattava, että tällaiset asiat eivät saisi olla myöskään julkisesti saatavan docker kuvan sisällä. .gitignore ja .dockerignore tiedostot kannattaa lisätä repositorioon jo kehityksen alkuvaiheessa. Esimerkkiä voi ottaa .gitignoreen tästä ja .dockerignoreen tästä. 
+**Ympäristömuuttujat, henkilötiedot tai muut salassa pidettävät asiat eivät saa päätyä julkiseksi esimerkiksi GitHubiin.** Salaisuuksia hallitaan esimerkiksi .env-tiedostoilla ja lisäämällä lokaalisti pidettävät tiedostojen nimet tai pelkästään tyypit .gitignoreen. On myös huomattava, että tällaiset asiat eivät saisi olla myöskään julkisesti saatavan Docker-kuvan sisällä. .gitignore- ja .dockerignore-tiedostot kannattaa lisätä repositorioon jo kehityksen alkuvaiheessa. Esimerkkiä voi ottaa .gitignoreen tästä ja .dockerignoreen tästä. 
 
-**AI työkalut:** Tekoälytyökalujen käyttäjillä on vastuu ottaa selvää miten tietyt (henkilökohtaiset) tiedostot tai kansiot voidaan konfiguroida pois työkalun nähtäviltä tai estää joidenkin komentojen ajaminen. On myös mahdollista luoda hiekkalaatikkoja, jotka eristävät mallin käytön siten, että työkalulla ei ole esimerkiksi kotihakemistoon lukuoikeuksia. Lisäksi osa datasta tai koodista voi olla salaista: on hyvä tarkistaa asiakkaalta mitä saa antaa työkalun analysoitavaksi etenkin jos koodi on yksityistä. Mitään henkilötietoja tai muuta luottamuksellista dataa ei saa käsitellä millään tekoälytyökalulla, ei edes CurreChatillä. Commitit kannattaa tehdä itse ja samalla tarkistaa, mitä on viemässä GitHubiin,vaikka koodin generoimiseen olisi
+**AI työkalut:** Tekoälytyökalujen käyttäjillä on vastuu ottaa selvää, miten tietyt (henkilökohtaiset) tiedostot tai kansiot voidaan konfiguroida pois työkalun nähtäviltä tai estää joidenkin komentojen ajaminen. On myös mahdollista luoda hiekkalaatikkoja, jotka eristävät mallin käytön siten, että työkalulla ei ole esimerkiksi kotihakemistoon lukuoikeuksia. Lisäksi osa datasta tai koodista voi olla salaista: on hyvä tarkistaa asiakkaalta, mitä saa antaa työkalun analysoitavaksi, etenkin jos koodi on yksityistä. Mitään henkilötietoja tai muuta luottamuksellista dataa ei saa käsitellä millään tekoälytyökalulla, ei edes CurreChatillä. Commitit kannattaa tehdä itse ja samalla tarkistaa, mitä on viemässä GitHubiin, vaikka koodin generoimiseen olisi
 
 **Tietoturva on jokaisen sovelluskehittäjän vastuulla.** Tekoälytyökalut ovat tulleet jäädäkseen ja niiden vastuullinen käyttö on jopa suotavaa. Kuitenkin generoitu koodi tulisi käydä läpi ja ymmärtää sen toiminta. Perusasiat kannattaa opetella yhä huolella ja koodausrutiinia pitää yllä. Mitä paremmin ymmärtää jonkin ohjelmointikielen ominaisuuksia ja alaa, jolle sovellusta tuotetaan, sitä parempia ja tarkempia prompteja saa aikaiseksi.
 
 **Ennen commitin luomista ja puskemista GitHubiin tai vastaavaan, tarkista vielä lisätyt (tai poistetut) rivit.** Tällä usein välttää väärien asioiden julkaisemisen.
 
-Luokaa myös kattavat .dockerignore ja .gitignore tiedostot, joiden avulla vältetään turhien tai mahdollisesti salaisten tiedostojen tai kansioiden siirtyminen versionhallintaan ja konttikuvaan. Esimerkit näistä tiedostoista löytyvät täältä.
+Luokaa myös kattavat .dockerignore- ja .gitignore-tiedostot, joiden avulla vältetään turhien tai mahdollisesti salaisten tiedostojen tai kansioiden siirtyminen versionhallintaan ja konttikuvaan. Esimerkit näistä tiedostoista löytyvät täältä.
 
 ## Testidata
 - Generoi data: älä käytä omia tai muiden henkilötietoja tai muuta sensitiivistä dataa testidatana!
@@ -23,17 +23,17 @@ Luokaa myös kattavat .dockerignore ja .gitignore tiedostot, joiden avulla vält
 
 ## Mitä tehdä, jos salaisuus tai henkiltietoja versionhallintaan (GitHub)
 - Älä salaa asiaa! On tärkeää reagoida nopeasti.
-- Jos salaisuuksia on päässyt GitHubiin, GitLabiin tai vastaavaan: vaihtakaa salasanat, apiavaimet tai muut vastaavat välittömästi.
+- Jos salaisuuksia on päässyt GitHubiin, GitLabiin tai vastaavaan: vaihtakaa salasanat, API-avaimet tai muut vastaavat välittömästi.
 - Henkilötietoja sisältävien sql dumppientai muiden vastaavien tiedostojen osalta:
   1. Laittakaa repository yksityiseksi
-  2. Ottakaa yhteyttä ohjaajaan ja tekniseenohjaajaan, jotta repositorio saadaan tilaan, joka ei sisällä mitään sensitiivistä dataa.
-- Ryhmän tuki on tärkeää ja ketään ei tulisi mollata tai syytellä tapahtuneesta. Parempi on pohtia sitä, mikä johti tilanteeseen ja miten vastaavaat tilanteet vältetään jatkossa. Myös ohjaajalle on hyvä selittää tilanne.
+  2. Ottakaa yhteyttä ohjaajaan ja tekniseen ohjaajaan, jotta repositorio saadaan tilaan, joka ei sisällä mitään sensitiivistä dataa.
+- Ryhmän tuki on tärkeää ja ketään ei tulisi mollata tai syytellä tapahtuneesta. Parempi on pohtia sitä, mikä johti tilanteeseen ja miten vastaavat tilanteet vältetään jatkossa. Myös ohjaajalle on hyvä selittää tilanne.
 
 ## OpenShift-/okd-konttialustojen konfiguraatiotiedostot
-`Secret` -tiedostot **eivät** saa olla julkisesti esillä. `ConfigMap`-tiedostojen ei tulisi sisältää mitään salaista. Mutta koska sinne voi lisätä periaatteessa mitä vain, se ovat pontentiaalinen uhka vuotaa tietoja, joten näiden kanssa tulee olla erityisen huolellinen.
+`Secret` -tiedostot **eivät** saa olla julkisesti esillä, ellei niiden sisältö ole kryptattu. `ConfigMap`-tiedostojen ei tulisi sisältää mitään salaista. Mutta koska sinne voi lisätä periaatteessa mitä vain, se on potentiaalinen uhka vuotaa tietoja, joten näiden kanssa tulee olla erityisen huolellinen.
 
 ## Muuta
-Jos käytätte palveluita tai luotte esimerkiksi gmail-tunnuksia kehityksen aikana, niin tilit kannattaa ehdottomasti poistaa niiden muuttuessa turhaksi.
+Jos käytätte palveluita tai luotte esimerkiksi Gmail-tunnuksia kehityksen aikana, niin tilit kannattaa ehdottomasti poistaa niiden muuttuessa turhaksi.
 
 Yleisenä nyrkkisääntönä voi pitää, että jos tiedostossa on plain text tai vaikka base64-enkoodattuja tokeneita, käyttiksiä ja salasanoja tai muuta vastaavaa tietoa, niin ei saa päätyä julkiseen repoon tai edes git-historiaan.
 
@@ -56,7 +56,7 @@ Tiedoston .npmrc konfiguraatio auttaa varautumaan [supply chain -hyökkäyksiä]
   ```
   **ignore-scripts=true** -> estää pakettien ensi-/jälkiasennusskriptien toiminnan. Näitä on legitiimissä käytössä erittäin harvoin.  
   **min-release-age=7** -> estää alle viikon vanhojen pakettien asennuksen. Mahdolliset haavoittuvuudet huomataan ja korjataan yleensä aikaisemmin.  
-  **save-prefix=** -> npm (jos ei eksplisiittisesti kielletä) asettaa asennettujen pakettien versionumeron eteen `^`-symbolin `package.lock`-tiedostossa, joka sallii paketin minor/patch -versioiden noston ajaessa `npm install`.
+  **save-prefix=** -> npm (jos ei eksplisiittisesti kielletä) asettaa asennettujen pakettien versionumeron eteen `^`-symbolin `package.lock`-tiedostossa, joka sallii paketin minor/patch-versioiden noston ajaessa `npm install`.
 
 2. Tarkista konfiguraatio ajamalla node projektin juuresssa
 
@@ -81,11 +81,11 @@ Tiedoston .npmrc konfiguraatio auttaa varautumaan [supply chain -hyökkäyksiä]
     `npx cypress install`
 
 ## Python
-Myös Pythonilla kehitettäessä käytetään ulkoisia kirjastoja. [Supply chain -hyökkäyksiä]((https://www.cloudflare.com/learning/security/what-is-a-supply-chain-attack/)) voidaan välttää mm. määrittämällä täsmällinen versionumero ([esim. pip työkalussa](https://pip.pypa.io/en/stable/cli/pip_index/#cmdoption-uploaded-prior-to)). Kuitenkin uusien, itselle tuntemattomien pakettien asentamisessa kannattaa noudattaa tervettä varovaisuutta.
+Myös Pythonilla kehitettäessä käytetään ulkoisia kirjastoja. [Supply chain -hyökkäyksiä]((https://www.cloudflare.com/learning/security/what-is-a-supply-chain-attack/)) voidaan välttää mm. määrittämällä täsmällinen versionumero ([esim. pip-työkalussa](https://pip.pypa.io/en/stable/cli/pip_index/#cmdoption-uploaded-prior-to)). Kuitenkin uusien, itselle tuntemattomien pakettien asentamisessa kannattaa noudattaa tervettä varovaisuutta.
 
-Jupyter Notebookien avulla pystyy yhdistämään koodia ja tekstiä mukavasti. Lisäksi datan visualisointi onnistuu helposti. Ennen kuin notebookin sisällön vie julkiseksi, on hyvä tarkistaa, että eihän tulosteet pidä sisällään esimerkiksi ympäristömuuttujia. Voikin olla hyvä tapa tyhjentää notebookin koodiblokkien tulosteen ennen committia.
+Jupyter Notebookien avulla pystyy yhdistämään koodia ja tekstiä mukavasti. Lisäksi datan visualisointi onnistuu helposti. Ennen kuin notebookin sisällön vie julkiseksi, on hyvä tarkistaa, että tulosteet eivät pidä sisällään esimerkiksi ympäristömuuttujia. Voikin olla hyvä tapa tyhjentää notebookin koodiblokkien tulosteen ennen commitia.
 
-Pythonilla ohjelmoidessa on hyvä käyttää virtuaaliympäristöä, jossa asennetaan vain juuri kyseisssä projektissa tarvittavat riippuvuudet.
+Pythonilla ohjelmoidessa on hyvä käyttää virtuaaliympäristöä, jossa asennetaan vain juuri kyseisessä projektissa tarvittavat riippuvuudet.
 
 ## Github repojen workflow't ja asetukset
-Push oikeudet mainiin kannattaisi rajoittaa vain organisaation jäseniin. Projektitasolla Settings > General > Features voi kliksuttaa ![image](img/github_pull_req_restrict.png).
+Push-oikeudet mainiin kannattaisi rajoittaa vain organisaation jäseniin. Projektitasolla Settings > General > Features voi kliksuttaa ![image](img/github_pull_req_restrict.png).
