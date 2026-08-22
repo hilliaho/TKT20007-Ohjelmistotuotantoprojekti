@@ -33,7 +33,7 @@ Luokaa myös kattavat .dockerignore ja .gitignore tiedostot, joiden avulla vält
 `Secret` -tiedostot **eivät** saa olla julkisesti esillä. `ConfigMap`-tiedostojen ei tulisi sisältää mitään salaista. Mutta koska sinne voi lisätä periaatteessa mitä vain, se ovat pontentiaalinen uhka vuotaa tietoja, joten näiden kanssa tulee olla erityisen huolellinen.
 
 ## Muuta
-Jos käytätte palveluita tai luotte esimerkiksi gmail- tai muita tunnuksia kehityksen aikana, mutta jäävät turhaksi, niin ne kannattaa ehdottomasti poistaa käytön loppuessa.
+Jos käytätte palveluita tai luotte esimerkiksi gmail-tunnuksia kehityksen aikana, niin tilit kannattaa ehdottomasti poistaa niiden muuttuessa turhaksi.
 
 Yleisenä nyrkkisääntönä voi pitää, että jos tiedostossa on plain text tai vaikka base64-enkoodattuja tokeneita, käyttiksiä ja salasanoja tai muuta vastaavaa tietoa, niin ei saa päätyä julkiseen repoon tai edes git-historiaan.
 
@@ -81,9 +81,9 @@ Tiedoston .npmrc konfiguraatio auttaa varautumaan [supply chain -hyökkäyksiä]
     `npx cypress install`
 
 ## Python
-Myös Pythonilla kehitettäessä käytetään ulkoisia kirjastoja. [Supply chain -hyökkäyksiä]((https://www.cloudflare.com/learning/security/what-is-a-supply-chain-attack/)) voidaan välttää esimerkiksi määrittämällä täsmällinen versionumero ([esim. pip työkalussa](https://pip.pypa.io/en/stable/cli/pip_index/#cmdoption-uploaded-prior-to)). Kuitenkin uusien, itselle tuntemattomien pakettien asentamisessa kannattaa noudattaa tervettä varovaisuutta.
+Myös Pythonilla kehitettäessä käytetään ulkoisia kirjastoja. [Supply chain -hyökkäyksiä]((https://www.cloudflare.com/learning/security/what-is-a-supply-chain-attack/)) voidaan välttää mm. määrittämällä täsmällinen versionumero ([esim. pip työkalussa](https://pip.pypa.io/en/stable/cli/pip_index/#cmdoption-uploaded-prior-to)). Kuitenkin uusien, itselle tuntemattomien pakettien asentamisessa kannattaa noudattaa tervettä varovaisuutta.
 
-Jupyter Notebookien avulla pystyy yhdistämään koodia ja tekstiä mukavasti sekä datan visualisointi onnistuu hyvin. Ennen kuin notebookin sisällön puskee julkiseksi, on hyvä tarkistaa, että eihän outputissa ole printattuna mitään ympäristömuuttujia tai muuta sellaista, jota ei tulisi julkisesti esittää. Yleisesti voi olla hyvä tapa tyhjentää notebookin koodiblokkien tulosteen ennen committia.
+Jupyter Notebookien avulla pystyy yhdistämään koodia ja tekstiä mukavasti. Lisäksi datan visualisointi onnistuu helposti. Ennen kuin notebookin sisällön vie julkiseksi, on hyvä tarkistaa, että eihän tulosteet pidä sisällään esimerkiksi ympäristömuuttujia. Voikin olla hyvä tapa tyhjentää notebookin koodiblokkien tulosteen ennen committia.
 
 Pythonilla ohjelmoidessa on hyvä käyttää virtuaaliympäristöä, jossa asennetaan vain juuri kyseisssä projektissa tarvittavat riippuvuudet.
 
