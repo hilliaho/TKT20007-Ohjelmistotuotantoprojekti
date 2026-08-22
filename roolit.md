@@ -30,7 +30,7 @@ Alla otteita eri rooleista mahdollisine vastuualueineen. Te voitte ryhmissänne 
 - Vetovastuussa väli- ja loppudemon tekemisestä, mutta ei tietysti tee kaikkea itse.
 
 ### Kirjuri
-- Tekee muistiinpanot asiakastapaamisessa ja jakaa ne ryhmille
+- Tekee muistiinpanot asiakastapaamisessa ja jakaa ne ryhmälle
 
 ### Retrovastaava
 - Vetää retrospektiivin
