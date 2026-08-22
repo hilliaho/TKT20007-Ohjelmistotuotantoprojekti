@@ -24,7 +24,7 @@ Luokaa myös kattavat .dockerignore- ja .gitignore-tiedostot, joiden avulla väl
 ## Mitä tehdä, jos salaisuus tai henkiltietoja versionhallintaan (GitHub)
 - Älä salaa asiaa! On tärkeää reagoida nopeasti.
 - Jos salaisuuksia on päässyt GitHubiin, GitLabiin tai vastaavaan: vaihtakaa salasanat, API-avaimet tai muut vastaavat välittömästi.
-- Henkilötietoja sisältävien sql dumppientai muiden vastaavien tiedostojen osalta:
+- Henkilötietoja sisältävien SQL-dumppien tai muiden vastaavien tiedostojen osalta:
   1. Laittakaa repository yksityiseksi
   2. Ottakaa yhteyttä ohjaajaan ja tekniseen ohjaajaan, jotta repositorio saadaan tilaan, joka ei sisällä mitään sensitiivistä dataa.
 - Ryhmän tuki on tärkeää ja ketään ei tulisi mollata tai syytellä tapahtuneesta. Parempi on pohtia sitä, mikä johti tilanteeseen ja miten vastaavat tilanteet vältetään jatkossa. Myös ohjaajalle on hyvä selittää tilanne.
