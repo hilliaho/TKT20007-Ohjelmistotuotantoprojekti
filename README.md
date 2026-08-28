@@ -12,8 +12,8 @@ Ohtuprojekti osallistujan silmin: syksyn 2024 NOW-tietokanta-tiimin [kertomus](h
 
 **Demot** kesä 2026:
 
-* Välidemo (tiivisprojekti loppudemo) to 25.6. klo 10.00-12 Physicum E204
-* Loppudemo ke 26.8. klo 10:00-12, Exactum C222
+* Välidemo  pe 16.10. klo 9.00-12, (sali lisätään myöhemmin)
+* Loppudemo pe 11.12. klo 9:00-12, (sali lisätään myöhemmin)
 
 Aloitus tasalta ilman akateemista varttia.
 
@@ -28,6 +28,8 @@ Aloitus tasalta ilman akateemista varttia.
 Ryhmille on tarjolla teknistä tukea! Kysy [discordissa](https://study.cs.helsinki.fi/discord/join/ohtuproj), kanavalla *ohtuproj_tekninen_tuki*
 
 Katso myös [OpenShift](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/openshift)-ohje
+
+Kannattaa vilkaista [ajatuksia tietoturvasta](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/tietoturva-ajatuksia.md). Tekstin tarkoitus on herätellä ajattelemaan tietoturvaan liittyviä aiheita ohjelmistokehityksen yhteydessä. Teksti ei kata kaikkea mahdollista, mutta toivottavasti antaa vinkkejä mihin ainakin kannattaa kiinnittää huomiota.
 
 ## Projektin tavoite
 
