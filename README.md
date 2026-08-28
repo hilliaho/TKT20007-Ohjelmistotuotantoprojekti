@@ -13,7 +13,7 @@ Ohtuprojekti osallistujan silmin: syksyn 2024 NOW-tietokanta-tiimin [kertomus](h
 **Demot** kesä 2026:
 
 * Välidemo  pe 16.10. klo 9.00-12, (sali lisätään myöhemmin)
-* Loppudemo pe 11.12. klo 9:00-12, (sali lisätään myöhemmin)
+* Loppudemo pe 11.12. klo 9:00-12, CK112
 
 Aloitus tasalta ilman akateemista varttia.
 
