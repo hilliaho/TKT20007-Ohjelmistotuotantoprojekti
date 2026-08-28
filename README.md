@@ -10,12 +10,10 @@ Ohtuprojekti osallistujan silmin: syksyn 2024 NOW-tietokanta-tiimin [kertomus](h
 
 - Kurssilla on Discord-kanava _ohtuproj_, liity nyt https://study.cs.helsinki.fi/discord/join/ohtuproj
 
-**Demot** kesä 2026:
+**Demot** Syksy 2026:
 
-* Välidemo  pe 16.10. klo 9.00-12, (sali lisätään myöhemmin)
-* Loppudemo pe 11.12. klo 9:00-12, CK112
-
-Aloitus tasalta ilman akateemista varttia.
+* Välidemo  pe 16.10. klo 8.15-10, CK112 
+* Loppudemo pe 11.12. klo 9:00-12, CK112 
 
 **Vertaisarviot**:
 
