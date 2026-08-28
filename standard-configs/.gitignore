@@ -1,0 +1,93 @@
+# disallow directory named "private", it can be used to store things that should not end up in version control or images
+# NOTE: needs to be at the root of the project
+/private/
+/gitignored/
+
+# disallow version control, package managment, IDEs, tools etc
+**/node_modules
+**/.venv
+**/.vscode
+**/.idea
+**/.zed
+**/coverage/
+**/.eslintcache
+**/.DS_Store
+
+# do not include any data by default (except json)
+*.csv
+*.tsv
+*.db
+*.sqlite
+*.sql
+*.psql
+*.sqlz
+*.sqz
+*.sql.gz
+*.bson
+*.jsonl
+*.parquet
+*.bin
+*.dat
+*.data
+
+*.swp
+*.tmp
+.~lock* 
+*.pid
+*.seed
+*.lock
+
+*.gz
+*.tgz
+*.xz
+*.zip
+*.gzip
+*.tar
+*.7z
+*.rar
+
+*.docx
+*.doc
+*.xlsx
+*.xls
+*.pptx
+*.ppt
+*.odt
+*.odp
+*.ods
+*.pdf
+
+# disallow logs
+*.log
+*.log*
+**/logs/
+**/log/
+*.cpuprofile
+*.heapprofile
+*.heapsnapshot
+
+# disallow configuration
+*.toml
+*.conf
+*.ini
+
+# disallow secrects
+.env
+.env*
+*.env.*
+.secrets
+*.secrets
+
+# disallow backups
+**/backup
+**/dump
+**/temp
+**/db_backups
+**/uploads
+
+# additional inclusions here
+
+# exclusions here
+!.env.template
+!.env.sample
+!.env.example
